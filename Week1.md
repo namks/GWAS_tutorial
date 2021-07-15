@@ -1,9 +1,9 @@
-# GWAS Tutorial Session - Week 1
+# Biobank Data Analysis Tutorial Session - Week 1
 
 ## Environment
 
 * First, connect to the GSDS cluster using lab account (You can find the credential information in Google Drive)
-* Connect to the CPU node using the command `ssh cpu01`
+* Connect to the CPU node (ex. `ssh cpu01`)
 * Activate the conda environment with R using the command `conda activate r3.6` or `r3` (shortcut)
 * Make your own directory for the practice in `/media/leelabsg_storage01/GWAS_tutorial`
 
@@ -13,7 +13,7 @@ In this practice session, we will run GWAS on chromosome 2 only.
 
 For an introduction to GWAS, please refer to the presentation material (210708).
 
-#### Step 1. Build a phenotype (.fam) file
+### Step 1. Build a phenotype (.fam) file
 
 You can find the phenotype file in `/media/leelabsg_storage01/DATA/UKBB/Pheno/`
 
@@ -115,7 +115,7 @@ As a result, you will see the output:
 1802736 1802736 0 0 2 156.5
 ```
 
-#### Step 2. Build a covariate file
+### Step 2. Build a covariate file
 
 We have pre-calculated principal components (PC) data in
 
@@ -133,15 +133,15 @@ So, we have to sort IIDs in the output file using the following command:
 ~/plink \
 --bed /media/leelabsg_storage01/DATA/UKBB/cal/ukb_cal_chr2_v2.bed \
 --bim /media/leelabsg_storage01/DATA/UKBB/cal/ukb_snp_chr2_v2.bim \
---fam ukb45227_cal_chr20_v2_s488264.fam \
+--fam /media/leelabsg_storage01/DATA/UKBB/cal/ukb45227_cal_chr20_v2_s488264.fam \
 --covar ourdata.txt \
 --write-covar \
---out covar.cov
+--out covar
 ```
 
 Then, you will get the covariate file with the same order as our genotype data (`.fam`).
 
-#### Step 3. Run GWAS
+### Step 3. Run GWAS
 
 Everything is ready. But we are solving a huge problem, it will take quite long time.
 
@@ -158,8 +158,9 @@ Let's run the analysis using the following command:
 --bed /media/leelabsg_storage01/DATA/UKBB/cal/ukb_cal_chr2_v2.bed \
 --bim /media/leelabsg_storage01/DATA/UKBB/cal/ukb_snp_chr2_v2.bim \
 --fam /media/leelabsg_storage01/GWAS_tutorial/height.fam \
---linear
---covar covar.cov
+--linear \
+--covar covar.cov \
+--covar-name Sex,PC1-PC10,Age \
 --out chr2
 ```
 
@@ -169,7 +170,39 @@ Then, after a while, you will obtain three result files:
 * `.log`: log for our analysis
 * `.nosex`: IIDs of ambiguous sex
 
-**Note**: If the connection to the server is lost, the work is stopped and you have to start over from the beginning. Therefore, `nohup` command will be of great help for your analysis.
+And our result file (`.assoc.linear`) looks like
+
+```
+ CHR             SNP         BP   A1       TEST    NMISS       BETA         STAT            P 
+   2      rs10172629      11944    T        ADD   342681   -0.07482       -1.071       0.2844
+   2      rs10172629      11944    T        Sex   342681      -13.3       -613.6            0
+   2      rs10172629      11944    T        PC1   342681    0.02394        3.389    0.0007006
+   2      rs10172629      11944    T        PC2   342681   -0.00733      -0.9983       0.3181
+   2      rs10172629      11944    T        PC3   342681    0.01767        2.493      0.01267
+   2      rs10172629      11944    T        PC4   342681   -0.02114       -3.999    6.368e-05
+   2      rs10172629      11944    T        PC5   342681   -0.08749       -37.81            0
+   2      rs10172629      11944    T        PC6   342681    0.01756        2.598     0.009376
+   2      rs10172629      11944    T        PC7   342681   -0.04646       -7.671    1.718e-14
+   2      rs10172629      11944    T        PC8   342681    0.06326        10.53    6.559e-26
+   2      rs10172629      11944    T        PC9   342681  -0.000604      -0.2491       0.8033
+   2      rs10172629      11944    T       PC10   342681   -0.05583       -10.62    2.546e-26
+   2      rs10172629      11944    T        Age   342681    -0.1596         -118            0
+   2       rs7595668      16937    A        ADD   335808   -0.02245      -0.4165       0.6771
+   2       rs7595668      16937    A        Sex   335808      -13.3       -607.6            0
+   2       rs7595668      16937    A        PC1   335808     0.0239        3.349    0.0008097
+   2       rs7595668      16937    A        PC2   335808  -0.006317      -0.8519       0.3943
+   2       rs7595668      16937    A        PC3   335808     0.0173        2.416      0.01568
+   2       rs7595668      16937    A        PC4   335808   -0.01938        -3.63    0.0002833
+   2       rs7595668      16937    A        PC5   335808   -0.08857       -37.89            0
+   2       rs7595668      16937    A        PC6   335808    0.01747        2.558      0.01052
+   2       rs7595668      16937    A        PC7   335808   -0.04662       -7.624    2.474e-14
+   2       rs7595668      16937    A        PC8   335808    0.06389        10.53    6.503e-26
+   2       rs7595668      16937    A        PC9   335808 -0.0004022      -0.1643       0.8695
+   2       rs7595668      16937    A       PC10   335808   -0.05544       -10.44    1.718e-25
+   2       rs7595668      16937    A        Age   335808    -0.1594       -116.8            0
+```
+
+**Note**: If the connection to the server is lost, the work will be stopped and you have to start again from the beginning. Therefore, `nohup` command will be of great help for your analysis.
 
 ## Homework
 
