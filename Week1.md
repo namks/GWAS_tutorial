@@ -149,7 +149,7 @@ Before running GWAS, let's check if you understand our problem well.
 
 *Q1*: How many linear regression equations need to be solved?
 
-*Q2*: If we write our linear regression model as $y= X\beta + \epsilon$, what is the dimension of $X$?
+*Q2*: If we write our linear regression model as **y = Xb + e**, what is the dimension of **X**?
 
 Let's run the analysis using the following command:
 
