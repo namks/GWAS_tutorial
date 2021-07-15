@@ -19,7 +19,7 @@ You can find the phenotype file in `/media/leelabsg_storage01/DATA/UKBB/Pheno/`
 
 Run the following command in the above path:
 
-```head -1 ukb42597.tab | tr '\t' '\n' | nl | head -30```
+```head -1 ukb42597.tab | tr '\t' '\n' | nl | head -20```
 
 Then, you will see the result as follows.
 
