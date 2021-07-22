@@ -80,6 +80,33 @@ do
 done
 ```
 
+### Linux command to cancel jobs
+
+Sometimes, there may be situations when you have to cancel a lot of jobs.
+
+You can check the status of the node by `htop` or `ps aux` command.
+But, it returns all processes of the node, so you need to filter with a certain condition.
+For example, suppose we want to kill all processes containing the string `plink`.
+
+The following command returns processes containing the string `plink`:
+```
+ps aux | grep plink
+```
+
+Among them, we need to extract process IDs (which are in the second column) and save into a text file with the following command:
+```
+ps aux | grep plink | awk '{print $2}' > pid.txt
+```
+
+With this file (with PIDs), you can kill them all by:
+```
+while read p
+do
+    kill -9 ${p}
+done < pid.txt
+```
+
+The `-9` flag means `SIGKILL` (to force quit).
 
 
 ## GWAS for the phenotype your choice
@@ -138,3 +165,5 @@ But our data is coded:
 
 Therefore, **don't forget to add `--1` flag** in your command.
 
+You can check your results by comparing them with those of SAIGE Pheweb.
+(https://pheweb.org/UKB-SAIGE/)
