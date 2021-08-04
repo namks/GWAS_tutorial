@@ -186,6 +186,7 @@ NIH20O7062415           2           0           2           0           2
 **Exercise**
 
 Find the genotype of position `22:41418229_T/G` of the individual with IID `NIH20O7911808`.
+
 Hint: `match` function will help you find the index.
 
 ### Read `.bgen` files using `seqminer`
@@ -202,6 +203,7 @@ str(bgenObj)
 ```
 
 Then, You can see what kind of data is there.
+
 ```
 # OUTPUT
 List of 8
@@ -225,6 +227,7 @@ List of 8
 There are 7 SNPs in a given range, and there are three probability values per SNP.
 
 For example, suppose that we want to see the genotypes at the first SNP in `bgenObj` (`22:16440500_T/C`) of first 5 individuals.
+
 ```
 # INPUT
 bgenObj$probability[[1]][, 1:5]
