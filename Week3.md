@@ -189,6 +189,7 @@ NIH20O7062415           2           0           2           0           2
 **Exercise**
 
 Find the genotype of position `22:41418229_T/G` of the individual with IID `NIH20O7911808`.
+
 Hint: `match` function will help you find the index.
 
 ### Read `.bgen` files using `seqminer`
