@@ -75,7 +75,7 @@ other attached packages:
 [1] SAIGE_0.43.3
 ```
 
-#### Step 1
+#### Step 1 (SAIGE 0.44.5 or `saige` environment)
 
 ```
 nohup step1_fitNULLGLMM.R \
@@ -91,7 +91,7 @@ nohup step1_fitNULLGLMM.R \
 ```
 * Why do we need the genotype data in Step 1 (fitting the **null** model)?
 
-#### Step 2
+#### Step 2 (SAIGE 0.43.3 or `RSAIGE8` environment)
 
 ```
 nohup Rscript /home/leelabsg/SAIGE/extdata/step2_SPAtests.R \
@@ -110,7 +110,7 @@ nohup Rscript /home/leelabsg/SAIGE/extdata/step2_SPAtests.R \
 --LOCO=FALSE &
 ```
 
-#### Drawing plots (Manhattan and QQ)
+#### Drawing plots (Manhattan and QQ) (`r3.6` environment)
 
 ```
 library(qqman)
