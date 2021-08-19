@@ -94,7 +94,7 @@ nohup step1_fitNULLGLMM.R \
 #### Step 2
 
 ```
-nohup step2_SPAtests.R \
+nohup Rscript /home/leelabsg/SAIGE/extdata/step2_SPAtests.R \
 --vcfFile=/media/leelabsg_storage01/KOGO_workshop/SAIGE/saige_example.vcf.gz \
 --vcfFileIndex=/media/leelabsg_storage01/KOGO_workshop/SAIGE/saige_example.vcf.gz.tbi \
 --vcfField=GT \
