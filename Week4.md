@@ -93,6 +93,8 @@ nohup step1_fitNULLGLMM.R \
 
 #### Step 2 (SAIGE 0.43.3 or `RSAIGE8` environment)
 
+(SAIGE 0.44.5 has a bug in which the `.csi` file is required even though it is not needed.)
+
 ```
 nohup Rscript /home/leelabsg/SAIGE/extdata/step2_SPAtests.R \
 --vcfFile=/media/leelabsg_storage01/KOGO_workshop/SAIGE/saige_example.vcf.gz \
@@ -135,6 +137,11 @@ You can also use Docker in `cpu02` node. We installed 4 different version of SAI
 * `0.44.2`
 * `0.44.3_scorercpp`
 * `0.44.5`
+
+You can see the list of images with the following command.
+```
+docker image ls
+```
 
 You can make a Docker container with the following command:
 
