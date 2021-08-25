@@ -21,9 +21,13 @@ Slurm is installed on `cpu01-04` nodes in GSDS cluster. (As of Aug 25, 2021)
 You can submit jobs on any node where Slurm is installed.
 
 Slurm commands:
+
 `sbatch`: Submit slurm jobs
+
 `squeue`: Check the status of running/pending jobs
+
 `sinfo`: Check the status of nodes
+
 `scancel`: Cancel slurm jobs
 
 #### Job submission
