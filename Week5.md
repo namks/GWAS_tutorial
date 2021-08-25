@@ -130,24 +130,24 @@ bash cancel.sh
 
 * Exploring UK Biobank data
 
-    1) Phenotype (`.tab`) files
-    2) Covariate (PC) files
-    3) PLINK binary (`.bed`, `.bim`, `.fam`) files
+    1. Phenotype (`.tab`) files
+    2. Covariate (PC) files
+    3. PLINK binary (`.bed`, `.bim`, `.fam`) files
 
 * GWAS using PLINK: Quantitative (eg. height) and Binary (eg. disease)
 * Drawing manhattan and QQ plot with GWAS results (summary statistics)
 * Linux commands
 * Various format of genetic data
 
-    1) PLINK binary format
-    2) Variant Call format (`.vcf`)
-    3) Oxford format (`.bgen`)
+    1. PLINK binary format
+    2. Variant Call format (`.vcf`)
+    3. Oxford format (`.bgen`)
 
 * Handling genetic data files using `seqminer` and `PLINK`
 * Introduction to SAIGE
 * GWAS using SAIGE with various environments:
 
-    1) Anaconda
-    2) Docker
+    1. Anaconda
+    2. Docker
 
 * Running jobs using Slurm
