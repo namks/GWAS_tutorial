@@ -5,7 +5,7 @@ This document describes how to run SAIGE on DNAnexus using UKB WES 450k data.
 ## Environment
 
 DNAnexus offers web-based interface, but it is not suitable for submitting multiple job.\
-I recommend using `dxpy` (https://github.com/dnanexus/dx-toolkit).\
+I recommend using `dxpy` (https://github.com/dnanexus/dx-toolkit). \
 It can also be installed using Anaconda.
 ```
 conda install -c bioconda dxpy
