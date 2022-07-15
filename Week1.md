@@ -3,19 +3,17 @@
 ## Environment
 
 * First, connect to the GSDS cluster using lab account (You can find the credential information in Google Drive)
-* Connect to the CPU node (ex. `ssh cpu01`)
-* Activate the conda environment with R using the command `conda activate r3.6` or `r3` (shortcut)
-* Make your own directory for the practice in `/media/leelabsg_storage01/GWAS_tutorial`
+* Connect to the CPU node (ex. `ssh leelabsg01`)
+* Make your own directory for the practice in `/media/leelabsg-storage0/GWAS_tutorial`
 
 ## GWAS for standing height
 
-In this practice session, we will run GWAS on chromosome 2 only.
-
-For an introduction to GWAS, please refer to the presentation material (210708).
+In this practice session, we will run GWAS on chromosome 2 only. \
+For an introduction to GWAS, please refer to the presentation material.
 
 ### Step 1. Build a phenotype (.fam) file
 
-You can find the phenotype file in `/media/leelabsg_storage01/DATA/UKBB/Pheno/`
+You can find the phenotype file in `/media/leelabsg-storage0/DATA/UKBB/Pheno/`
 
 Run the following command in the above path:
 
@@ -49,14 +47,14 @@ Then, you will see the result as follows.
 We need only column 1 and column 18, so we have to extract these two columns
 using the following command.
 
-```cat ukb42597.tab | awk '{print $1, $18}' > /media/leelabsg_storage01/GWAS_tutorial/test.txt```
+```cat ukb42597.tab | awk '{print $1, $18}' > /media/leelabsg-storage0/GWAS_tutorial/test.txt```
 
 Next, you will have to merge the height data to `.fam` file.
 
 In this tutorial, we will use `dplyr` package in R.
 But, you can also use Python, Excel, etc.
 
-Our (called) genotype dataset is in `/media/leelabsg_storage01/DATA/UKBB/cal`
+Our (called) genotype dataset is in `/media/leelabsg-storage0/DATA/UKBB/cal`
 
 PLINK binary genotype data consists of 3 files.
 
@@ -88,12 +86,12 @@ So, replace the last column with the height.
 library(data.table)
 library(dplyr)
 
-fam = fread("/media/leelabsg_storage01/DATA/UKBB/cal/ukb45227_cal_chr20_v2_s488264.fam", header=F)
-height = fread("/media/leelabsg_storage01/GWAS_tutorial/test.txt", header=T)
+fam = fread("/media/leelabsg-storage0/DATA/UKBB/cal/ukb45227_cal_chr20_v2_s488264.fam", header=F)
+height = fread("/media/leelabsg-storage0/GWAS_tutorial/test.txt", header=T)
 join = left_join(fam, height, by=c("V2"="f.eid"))
 out = join[,-c(6)]
 
-out_path = "/media/leelabsg_storage01/GWAS_tutorial/height.fam"
+out_path = "/media/leelabsg-storage0/GWAS_tutorial/height.fam"
 write.table(out, out_path, row.names=F, col.names=F, quote=F)
 ```
 
@@ -119,10 +117,10 @@ As a result, you will see the output:
 
 We have pre-calculated principal components (PC) data in
 
-```/media/leelabsg_storage01/DATA/UKBB/PC/PEDMASTER_UNRELATED_WhiteBritish_20180612_v2.txt```
+```/media/leelabsg-storage0/DATA/UKBB/PC/PEDMASTER_UNRELATED_WhiteBritish_20180612_v2.txt```
 
 **But, be aware that IID in PC file is different from our data**.
-We have to convert the IID in PC file using `/media/leelabsg_storage01/DATA/UKBB/Mapping/mapping.csv`
+We have to convert the IID in PC file using `/media/leelabsg-storage0/DATA/UKBB/Mapping/mapping.csv`
 
 **Exercise**: convert IIDs in our PC file using `mapping.csv`, and save this PC file in your practice directory.
 Your output should look like this:
@@ -145,9 +143,9 @@ So, we have to sort IIDs in the output file using the following command:
 
 ```
 ~/plink \
---bed /media/leelabsg_storage01/DATA/UKBB/cal/ukb_cal_chr2_v2.bed \
---bim /media/leelabsg_storage01/DATA/UKBB/cal/ukb_snp_chr2_v2.bim \
---fam /media/leelabsg_storage01/DATA/UKBB/cal/ukb45227_cal_chr20_v2_s488264.fam \
+--bed /media/leelabsg-storage0/DATA/UKBB/cal/ukb_cal_chr2_v2.bed \
+--bim /media/leelabsg-storage0/DATA/UKBB/cal/ukb_snp_chr2_v2.bim \
+--fam /media/leelabsg-storage0/DATA/UKBB/cal/ukb45227_cal_chr20_v2_s488264.fam \
 --covar ourdata.txt \
 --write-covar \
 --out covar
@@ -157,8 +155,7 @@ Then, you will get the covariate file with the same order as our genotype data (
 
 ### Step 3. Run GWAS
 
-Everything is ready. But we are solving a huge problem, it will take quite long time.
-
+Everything is ready. But we are solving a huge problem, it will take quite long time. \
 Before running GWAS, let's check if you understand our problem well.
 
 *Q1*: How many linear regression equations need to be solved?
@@ -169,9 +166,9 @@ Let's run the analysis using the following command:
 
 ```
 ~/plink \
---bed /media/leelabsg_storage01/DATA/UKBB/cal/ukb_cal_chr2_v2.bed \
---bim /media/leelabsg_storage01/DATA/UKBB/cal/ukb_snp_chr2_v2.bim \
---fam /media/leelabsg_storage01/GWAS_tutorial/height.fam \
+--bed /media/leelabsg-storage0/DATA/UKBB/cal/ukb_cal_chr2_v2.bed \
+--bim /media/leelabsg-storage0/DATA/UKBB/cal/ukb_snp_chr2_v2.bim \
+--fam /media/leelabsg-storage0/GWAS_tutorial/height.fam \
 --linear \
 --covar covar.cov \
 --covar-name Sex,PC1-PC10,Age \
@@ -220,7 +217,7 @@ And our result file (`.assoc.linear`) looks like
 
 ## Homework
 
-1. Draw a manhattan and QQ plot for your result (chromosome 2) using `qqman` package in R, and compare your results with the figure on page 38 in 210708 material.
+1. Draw a manhattan and QQ plot for your result (chromosome 2) using `qqman` package in R, and compare your results with the figure on page 38 in 220715 presentation slide.
 2. If the above experiment was reproduced normally, try *Genome-wide association test* (using all 22 chromosomes) using `plink`. When you obtain the results, draw a manhattan and QQ plot.
 3. Think of a trait (phenotype) you are interested in. We will try GWAS with that trait next week. You can find the list of phenotypes on the UK Biobank showcase website.
 
