@@ -142,11 +142,11 @@ The order of IIDs in the output file will be different from our genotype file.
 So, we have to sort IIDs in the output file using the following command:
 
 ```
-~/plink \
+plink \
 --bed /media/leelabsg-storage0/DATA/UKBB/cal/ukb_cal_chr2_v2.bed \
 --bim /media/leelabsg-storage0/DATA/UKBB/cal/ukb_snp_chr2_v2.bim \
 --fam /media/leelabsg-storage0/DATA/UKBB/cal/ukb45227_cal_chr20_v2_s488264.fam \
---covar ourdata.txt \
+--covar /media/leelabsg-storage0/DATA/UKBB/PC/PEDMASTER_UNRELATED_WhiteBritish_20180612_v2_MAPPED.txt \
 --write-covar \
 --out covar
 ```
@@ -165,7 +165,7 @@ Before running GWAS, let's check if you understand our problem well.
 Let's run the analysis using the following command:
 
 ```
-~/plink \
+plink \
 --bed /media/leelabsg-storage0/DATA/UKBB/cal/ukb_cal_chr2_v2.bed \
 --bim /media/leelabsg-storage0/DATA/UKBB/cal/ukb_snp_chr2_v2.bim \
 --fam /media/leelabsg-storage0/GWAS_tutorial/height.fam \
