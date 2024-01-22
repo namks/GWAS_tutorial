@@ -168,7 +168,7 @@ docker kill [CONTAINER_ID]
 * Binary phenotype
 
 ```
-docker run -dv /media/leelabsg-storage0:/media/leelabsg-storage0 wzhou88/saige:1.1.3 step1_fitNULLGLMM.R \
+docker run -dv /media/leelabsg-storage0:/media/leelabsg-storage0 wzhou88/saige:1.1.9 step1_fitNULLGLMM.R \
     --plinkFile=/media/leelabsg-storage0/GWAS_tutorial/data/UKB_step1 \
     --phenoFile=/media/leelabsg-storage0/GWAS_tutorial/YOUR_OWN_FILE \
     --phenoCol={NAME_OF_PHENOTYPE_COLUMN} \
@@ -184,7 +184,7 @@ docker run -dv /media/leelabsg-storage0:/media/leelabsg-storage0 wzhou88/saige:1
 * Quantitative phenotype
 
 ```
-docker run -dv /media/leelabsg-storage0:/media/leelabsg-storage0 wzhou88/saige:1.1.3 step1_fitNULLGLMM.R \
+docker run -dv /media/leelabsg-storage0:/media/leelabsg-storage0 wzhou88/saige:1.1.9 step1_fitNULLGLMM.R \
     --plinkFile=/media/leelabsg-storage0/GWAS_tutorial/data/UKB_step1 \
     --phenoFile=/media/leelabsg-storage0/GWAS_tutorial/{YOUR_OWN_FILE} \
     --phenoCol={NAME_OF_PHENOTYPE_COLUMN} \
@@ -202,7 +202,7 @@ docker run -dv /media/leelabsg-storage0:/media/leelabsg-storage0 wzhou88/saige:1
 #### Step 2 (Single-variant association test)
 
 ```
-docker run -dv /media/leelabsg-storage0:/media/leelabsg-storage0 wzhou88/saige:1.1.3 step2_SPAtests.R \
+docker run -dv /media/leelabsg-storage0:/media/leelabsg-storage0 wzhou88/saige:1.1.9 step2_SPAtests.R \
     --bedFile=/media/leelabsg-storage0/DATA/UKBB/cal/ukb_cal_chr1_v2.bed \
     --bimFile=/media/leelabsg-storage0/DATA/UKBB/cal/ukb_snp_chr1_v2.bim \
     --famFile=/media/leelabsg-storage0/DATA/UKBB/cal/ukb45227_cal_chr20_v2_s488264.fam \
