@@ -1,6 +1,6 @@
-# Biobank Data Analysis Tutorial Session - Week 2
+# Biobank Data Analysis Tutorial Session - Day 2
 
-## Review of last week's homework
+## Review of last session's homework
 
 ### Manhattan plot
 
