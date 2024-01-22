@@ -121,10 +121,31 @@ We will use **SAIGE** to run GWAS for the phenotype of your choice.
 * Fast computation
 * Prevent type I error inflation in case of unbalanced case-control ratio
 
+### Lab Cluster
+
+#### Login node
+
+* Can be reached by `ssh ID@147.47.200.131`
+* **Do NOT run your jobs on this node!**
+
+#### 12 CPU nodes
+
+* `ssh leelabsg[00-11]` in login node
+* 64 cores (128 threads) each
+* 1 RTX A5000 GPU each
+
+#### 2 Storage nodes
+
+* 256 TB each
+* Can be reached at `/media/leelabsg-storage[0-1]`
+
+
 
 ### Docker
 
 * We will run SAIGE using Docker (https://www.docker.com/)
+* OS-level virtualization software
+* Easy to install
 
 #### Container and Image
 
