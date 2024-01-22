@@ -93,7 +93,7 @@ We can transfer (copy) files using `scp` command.
 
 Example:
 ```
-scp -r 'leelabguest@147.47.200.192:PATH_OF_SOURCE' PATH_OF_DESTINATION
+scp -rP 22555 'leelabguest@147.47.200.131:PATH_OF_SOURCE' PATH_OF_DESTINATION
 ```
 
 
