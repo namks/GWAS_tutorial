@@ -1,4 +1,4 @@
-# Biobank Data Analysis Tutorial Session - Week 3
+# Biobank Data Analysis Tutorial Session - Day 3
 
 ## Check your GWAS results
 
