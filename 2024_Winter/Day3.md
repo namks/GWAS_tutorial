@@ -25,7 +25,7 @@ Suppose we want to extract 1,000 SNPs and 5,000 samples.
 We can extract the genotype data file set using the following command:
 
 ```
-plink2 \
+~/plink \
 --bfile /media/leelabsg-storage0/GWAS_tutorial/data/UKB_step1 \
 --extract /media/leelabsg-storage0/GWAS_tutorial/data/snps.txt \
 --keep /media/leelabsg-storage0/GWAS_tutorial/data/samples.txt \
