@@ -243,7 +243,7 @@ FUMA provides several useful functions including gene mapping.
 ### GWAS Catalog
 
 GWAS Catalog is a database of published genetic associations. \
-It contains 6,180 publications and 458,152 associations (as of December 2022).
+It contains 6,688 publications and 569,163 associations (as of January 2024).
 
 * GWAS Catalog website: https://www.ebi.ac.uk/gwas/
 
