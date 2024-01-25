@@ -51,7 +51,7 @@ In this tutorial, we will cover the following:
 ```
 # INPUT
 library(seqminer)
-fname = "/media/leelabsg_storage01/KBN_WORK/plinkfile/by_chr/KBN_CHR22"
+fname = "/media/leelabsg-storage0/KBN_WORK/plinkfile/by_chr/KBN_CHR22"
 plinkObj = openPlink(fname)
 
 str(plinkObj)
@@ -63,7 +63,7 @@ Then we can see the contents of `.bim` file and `.fam` file.
 ```
 # OUTPUT
 List of 3
- $ prefix: chr "/media/leelabsg_storage01/KBN_WORK/plinkfile/by_chr/KBN_CHR22"
+ $ prefix: chr "/media/leelabsg-storage0/KBN_WORK/plinkfile/by_chr/KBN_CHR22"
  $ fam   :'data.frame':	72298 obs. of  6 variables:
   ..$ V1: int [1:72298] 0 0 0 0 0 0 0 0 0 0 ...
   ..$ V2: chr [1:72298] "NIH20O7486348" "NIH20O7673779" "NIH20O7662312" "NIH20O7330271" ...
@@ -141,7 +141,7 @@ You can also read `.bgen` files using `seqminer` in R.
 ```
 # INPUT
 library(seqminer)
-fname = "/media/leelabsg_storage01/KBN/유전정보/KCHIP_72298/chr22.bgen"
+fname = "/media/leelabsg-storage0/KBN/Genomics/KCHIP_72298/chr22.bgen"
 range = "22:16440000-16460000"
 bgenObj = readBGENToListByRange(fname, range)
 str(bgenObj)
